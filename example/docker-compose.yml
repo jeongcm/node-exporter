@@ -6,7 +6,7 @@ networks:
 
 services:
   node-exporter:
-    image: registry.datacommand.co.kr/node-exporter:v1.0.1
+    image: registry.datacommand.co.kr/node-exporter:HEAD
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
