@@ -1,0 +1,1 @@
+FROM registry.datacommand.co.kr/node-exporter:v1.0.1
