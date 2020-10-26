@@ -7,6 +7,9 @@ networks:
 services:
   node-exporter:
     image: registry.datacommand.co.kr/cdm-cloud-node-exporter:<tag>
+    environment:
+      - NODE_ID={{.Node.ID}}
+      - NODE_NAME={{.Node.Hostname}}
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
