@@ -6,6 +6,7 @@ ENV NODE_IP ""
 
 USER root
 
+CMD ["export", "NODE_IP=$(docker node inspect self --format '{{.Status.Addr}}')"]
 COPY entrypoint.sh /
 
 ENTRYPOINT  [ "/entrypoint.sh" ]
