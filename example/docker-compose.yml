@@ -10,6 +10,7 @@ services:
     environment:
       - NODE_ID={{.Node.ID}}
       - NODE_NAME={{.Node.Hostname}}
+      - NODE_IP=$(docker node inspect self --format '{{.Status.Addr}}')
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
