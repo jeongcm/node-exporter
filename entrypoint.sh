@@ -10,7 +10,7 @@ if [ "${NODE_NAME}" == "" ]; then
     exit 1
 fi
 
-NODE_IP=$(nslookup -type=any $NODE_NAME | sed -n '5p'| awk '{print $2}')
+NODE_IP=$(ping $NODE_NAME -c 1 | head -n 1 |awk '{print $3}' | sed "s/[:()]//g")
 
 echo "node_meta{node_id=\"$NODE_ID\", container_label_com_docker_swarm_node_id=\"$NODE_ID\", \
 node_name=\"$NODE_NAME\", node_ip=\"$NODE_IP\"} 1" > /node-meta.prom
